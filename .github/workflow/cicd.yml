@@ -1,0 +1,18 @@
+name: cryptostat
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - name: Action - checkout
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: rm -rf node_modules && yarn install --frozen-lockfile
+
