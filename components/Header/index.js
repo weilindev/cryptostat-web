@@ -79,7 +79,7 @@ const  Header = () => {
           size='sm'
           _hover={{}}
         />
-        {currentUser && (
+        {currentUser.isLogin && (
           <Menu islazy>
             <MenuButton
               size='sm'

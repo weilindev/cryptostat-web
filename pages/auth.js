@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useRouter } from 'next/navigation'
 import {
@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react"
 
 import { login } from '../features/userSlice'
+import Header from "../components/Header"
 import LoginForm from "../components/LoginForm"
 import RegisterForm from "../components/RegisterForm"
 import successToast from '../components/Toast/SuccessToast'
@@ -55,37 +56,40 @@ const Auth = () => {
 	}
 
 	return (
-		<Container
-			maxW='sm'
-			maxH='70%'
-			bg={useColorModeValue('white', 'gray.700')}
-			borderRadius={6}
-			boxShadow='md'
-			p={4}
-			sx={{
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'center',
-				justifyContent: 'flex-start',
-				position: 'absolute',
-				top: '50%',
-				left: '50%',
-				transform: 'translate(-50%, -50%)',
-				overflowY: 'scroll',
-			}}
-		>
-			{pageType === 'login' ? (
-				<LoginForm
-					submitLoginForm={submitLoginForm}
-					setPageType={setPageType}
-				/>
-			) : (
-				<RegisterForm
-					submitRegisterForm={submitRegisterForm}
-					setPageType={setPageType}
-				/>
-			)}
-		</Container>	
+		<>
+			<Header />
+			<Container
+				maxW='sm'
+				maxH='70%'
+				bg={useColorModeValue('white', 'gray.700')}
+				borderRadius={6}
+				boxShadow='md'
+				p={4}
+				sx={{
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+					justifyContent: 'flex-start',
+					position: 'absolute',
+					top: '50%',
+					left: '50%',
+					transform: 'translate(-50%, -50%)',
+					overflowY: 'scroll',
+				}}
+			>
+				{pageType === 'login' ? (
+					<LoginForm
+						submitLoginForm={submitLoginForm}
+						setPageType={setPageType}
+					/>
+				) : (
+					<RegisterForm
+						submitRegisterForm={submitRegisterForm}
+						setPageType={setPageType}
+					/>
+				)}
+			</Container>
+		</>
 	)
 }
 

@@ -15,9 +15,7 @@ const App = ({ Component, pageProps }) => {
 				<Head>
 					<title>cryptostat</title>
 				</Head>
-				<div style={{ width: '100vw', height: '100vh', position: 'relative'}}>
 					<Component {...pageProps} />
-				</div>
 			</ChakraProvider>
 		</Provider>
 	)
